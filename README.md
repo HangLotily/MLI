@@ -53,7 +53,7 @@ This is a Python 3.6 implementation of "MLI: A multi-level inference mechanism f
 
 4. unknown_nodes
 
-   Unknown users to be inferred.
+   Unknown users to be inferred. By random sampling a different number of unknown users can be obtained.
 
 ## Run codes
 
