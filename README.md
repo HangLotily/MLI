@@ -13,7 +13,7 @@ This is a Python 3.6 implementation of "MLI: A multi-level inference mechanism f
 
 1. dblp-public-graph
 
-   xxxxxxx
+   The relationship between users. Each line represents two researchers who are co-authors and have an undirected edge on the graph.
 
    Sample:
 
@@ -23,9 +23,11 @@ This is a Python 3.6 implementation of "MLI: A multi-level inference mechanism f
    #58010# #859500#
    ```
 
+   
+
 2. label_data
 
-   xxxxx
+   Users and their attributes. Each line represents a user's username, user id and his research interests which wrapped in a '#' pair.
 
    Sample:
 
@@ -37,7 +39,7 @@ This is a Python 3.6 implementation of "MLI: A multi-level inference mechanism f
 
 3. labelTree_data
 
-   xxxx
+   The tree structure represents the hierarchy of user attributes. The lower level attributes are refinements of the upper level attributes. The first line is the parent attribute (cs) and the second line is its child attributes (network, data, hardware, security, learning, computing and software). Each two lines represent a hierarchical edge.
 
    ```
    cs
@@ -51,7 +53,7 @@ This is a Python 3.6 implementation of "MLI: A multi-level inference mechanism f
 
 4. unknown_nodes
 
-   xxxxx
+   Unknown users to be inferred.
 
 ## Run codes
 
@@ -72,4 +74,3 @@ xxxxx
 ```
 $ python evaluate.py
 ```
-
