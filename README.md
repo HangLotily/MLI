@@ -32,7 +32,7 @@ This is a Python 3.6 implementation of "MLI: A multi-level inference mechanism f
    Sample:
 
    ```
-   #Ankit Singh# #184938# #cs, image, learning, classification#
+   #Ankit Singh# #184938# #cs,image,learning,classification#
    ```
 
    
