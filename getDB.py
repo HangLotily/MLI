@@ -31,12 +31,12 @@ def get_layer(l):
 
 # graphDB
 G = nx.Graph()
-with open('label_data', 'r') as file:
+with open('./data/label_data', 'r') as file:
     lines = file.readlines()
     for line in lines:
         node = mysplit1(line)[3]
         G.add_node(node)
-with open('dblp-public-graph', 'r') as file:
+with open('./data/dblp-public-graph', 'r') as file:
     lines = file.readlines()
     for line in lines:
         edge = mysplit1(line)   # edge -> ['', '513855', ' ', '485856', '\n']
@@ -79,7 +79,7 @@ labelDict = {1: {'cs': 1}, 2: {'network': 0, 'data': 0, 'hardware': 0, 'security
                  'android': 0, 'website': 0, 'debugging': 0, 'maintenance': 0}}
 
 label_dict = {}
-with open('label_data', 'r') as file:
+with open('./data/label_data', 'r') as file:
     lines = file.readlines()
     for line in lines:
         labelDict_tmp = copy.deepcopy(labelDict)
@@ -95,7 +95,7 @@ print("labelDB has generated")
 
 # unknown_nodes
 unknown_nodes = []
-with open('unknown_nodes', 'r') as file:
+with open('./data/unknown_nodes', 'r') as file:
     lines = file.readlines()
     for line in lines:
         rs = line.rstrip('\n')
@@ -108,7 +108,7 @@ print("unknown_nodes has generated")
 # labelTreeDB
 tree = Tree()
 tree.create_node('cs', 'cs')
-with open('labelTree_data', 'r') as file:
+with open('./data/labelTree_data', 'r') as file:
     lines = file.readlines()
     flag = 0
     for line in lines:
