@@ -56,6 +56,16 @@ This is a Python 3.6 implementation of "MLI: A multi-level inference mechanism f
 
    Unknown users to be inferred. By random sampling a different number of unknown users can be obtained.
 
+   
+
+5. how the user attribute hierarchy prepared?
+
+   We first clean the user attributes, which are the research fields in the dataset. For the problems that there are too much research fields and most of them rarely appear in the dataset, we merge attributes with the same or similar semantics, such as “Cluster”, “Clusters” and “Clustering”, “Tracking” and “Trace”, remove the attributes with unclear semantics, such as “z, un, old”, and only keep frequently occurring attributes. 
+
+   After that, we focus on how to construct a reasonable hierarchy from a large number of attributes, which should not only semantically conform to the professional domain background, but also make most users in the dataset satisfy the hierarchy constraint.
+
+   We construct the hierarchy in top-down manner, and the root node is “Computer Science”. Taking the classifications of computer research fields by ACM Computing Classification System (https://dl.acm.org/ccs) and China Computer Federation (https://www.ccf.org.cn) as background knowledge, we find that “Network”, “Big Data”, “Hardware”, “Security”, “Learning”, “Computing” and “Software” appear most frequently in the dataset and can basically cover the research fields of computer science, so we take these eight research fields as the second-level attributes of the hierarchy . When constructing the next level, we first select some attributes, which according to background knowledge are sub-research fields of second-level attributes and also appear frequently in the dataset. For Saeed Salem in the example, “Big Data” is his second-level attribute, and then we select “Data Mining” as the third-level attribute. Finally, we use the same method to construct the fourth-level, achieving level-by-level refinement of user attributes.
+
 ## Run codes
 
 Firstly, run getDB.py to transform the data into undirected graphs, dictionaries, etc. and store them as pkl files for subsequent use in inference.
