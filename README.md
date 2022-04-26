@@ -11,7 +11,17 @@ This is a Python 3.6 implementation of "MLI: A multi-level inference mechanism f
 
 ## Dataset
 
-1. dblp-public-graph
+1. how the user attribute hierarchy prepared?
+
+   We first clean the user attributes, which are the research fields in the dataset. For the problems that there are too much research fields and most of them rarely appear in the dataset, we merge attributes with the same or similar semantics, such as “Cluster”, “Clusters” and “Clustering”, “Tracking” and “Trace”, remove the attributes with unclear semantics, such as “z, un, old”, and only keep frequently occurring attributes. 
+
+   After that, we focus on how to construct a reasonable hierarchy from a large number of attributes, which should not only semantically conform to the professional domain background, but also make most users in the dataset satisfy the hierarchy constraint.
+
+   We construct the hierarchy in top-down manner, and the root node is “Computer Science”. Taking the classifications of computer research fields by ACM Computing Classification System (https://dl.acm.org/ccs) and China Computer Federation (https://www.ccf.org.cn) as background knowledge, we find that “Network”, “Big Data”, “Hardware”, “Security”, “Learning”, “Computing” and “Software” appear most frequently in the dataset and can basically cover the research fields of computer science, so we take these eight research fields as the second-level attributes of the hierarchy . When constructing the next level, we first select some attributes, which according to background knowledge are sub-research fields of second-level attributes and also appear frequently in the dataset. For Saeed Salem in the example, “Big Data” is his second-level attribute, and then we select “Data Mining” as the third-level attribute. Finally, we use the same method to construct the fourth-level, achieving level-by-level refinement of user attributes.
+   
+   
+   
+2. dblp-public-graph
 
    The relationship between users. Each line represents two researchers who are co-authors and have an undirected edge on the graph.
 
@@ -25,7 +35,7 @@ This is a Python 3.6 implementation of "MLI: A multi-level inference mechanism f
 
    
 
-2. label_data
+3. label_data
 
    Users and their attributes. Each line represents a user's username, user id and his research interests which wrapped in a '#' pair.
 
@@ -37,7 +47,7 @@ This is a Python 3.6 implementation of "MLI: A multi-level inference mechanism f
 
    
 
-3. labelTree_data
+4. labelTree_data
 
    The tree structure represents the hierarchy of user attributes. The lower level attributes are refinements of the upper level attributes. The first line is the parent attribute (cs) and the next line is its child attributes (network, data, hardware, security, learning, computing and software). Each two lines represent a hierarchical edge.
 
@@ -52,19 +62,11 @@ This is a Python 3.6 implementation of "MLI: A multi-level inference mechanism f
 
    
 
-4. unknown_nodes
+5. unknown_nodes
 
    Unknown users to be inferred. By random sampling a different number of unknown users can be obtained.
 
    
-
-5. how the user attribute hierarchy prepared?
-
-   We first clean the user attributes, which are the research fields in the dataset. For the problems that there are too much research fields and most of them rarely appear in the dataset, we merge attributes with the same or similar semantics, such as “Cluster”, “Clusters” and “Clustering”, “Tracking” and “Trace”, remove the attributes with unclear semantics, such as “z, un, old”, and only keep frequently occurring attributes. 
-
-   After that, we focus on how to construct a reasonable hierarchy from a large number of attributes, which should not only semantically conform to the professional domain background, but also make most users in the dataset satisfy the hierarchy constraint.
-
-   We construct the hierarchy in top-down manner, and the root node is “Computer Science”. Taking the classifications of computer research fields by ACM Computing Classification System (https://dl.acm.org/ccs) and China Computer Federation (https://www.ccf.org.cn) as background knowledge, we find that “Network”, “Big Data”, “Hardware”, “Security”, “Learning”, “Computing” and “Software” appear most frequently in the dataset and can basically cover the research fields of computer science, so we take these eight research fields as the second-level attributes of the hierarchy . When constructing the next level, we first select some attributes, which according to background knowledge are sub-research fields of second-level attributes and also appear frequently in the dataset. For Saeed Salem in the example, “Big Data” is his second-level attribute, and then we select “Data Mining” as the third-level attribute. Finally, we use the same method to construct the fourth-level, achieving level-by-level refinement of user attributes.
 
 ## Run codes
 
