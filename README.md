@@ -117,7 +117,7 @@ fp.py is one of our baselines from Rossi, Emanuele, et al. "[On the Unreasonable
 $ python fp.py 40
 ```
 
-In addition we also chose node2vec, one-all svm and other methods as baselines, and they are executed as follows.
+In addition we also chose node2vec, one-all svm and other methods as baselines, they are implemented as follows.
 
 ```
 $ python node2vec.py
