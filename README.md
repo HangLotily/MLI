@@ -66,7 +66,7 @@ This is a Python 3.6 implementation of "MLI: A multi-level inference mechanism f
 
    Unknown users to be inferred. By random sampling a different number of unknown users can be obtained.
 
-   
+
 
 ## Run codes
 
@@ -105,4 +105,22 @@ The inference results can be evaluated by multiple metrics through evaluate.py.
 0.6135742501884266
 >>> Hamming Loss
 0.22106666666666666
+```
+
+
+
+## Baselines
+
+fp.py is one of our baselines from Rossi, Emanuele, et al. "[On the Unreasonable Effectiveness of Feature propagation in Learning on Graphs with Missing Node Features](https://markdown.com.cn)". arXiv preprint arXiv:2111.12128 (2021). According to the article, 40 iterations are enough to provide convergence, so we set the parameter of the number of iterations to 40.
+
+```
+$ python fp.py 40
+```
+
+In addition we also chose node2vec, one-all svm and other methods as baselines, and they are executed as follows.
+
+```
+$ python node2vec.py
+$ python node2vec_dnn.py
+$ python one-all svm.py
 ```
